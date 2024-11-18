@@ -3,7 +3,7 @@ import { getFirestore, collection, addDoc, getDocs, orderBy, query, serverTimest
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSy...",
+  apiKey: "AIzaSyCgLQarOfqIlg5oogTxF8RGO3qS3nqenLQ",
   authDomain: "k-dev-xyz.firebaseapp.com",
   projectId: "k-dev-xyz",
   storageBucket: "k-dev-xyz.firebaseapp.com",
