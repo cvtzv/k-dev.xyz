@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
   const preloader = document.getElementById("preloader");
   const content = document.getElementById("content");
+  const avatar = document.getElementById("avatar");
+  const easterEgg = document.getElementById("easter-egg");
 
   setTimeout(() => {
     preloader.style.opacity = "0";
@@ -12,4 +14,9 @@ document.addEventListener("DOMContentLoaded", function() {
       content.style.transition = "opacity 0.5s ease";
     }, 500);
   }, 2000);
+
+  // Пасхалка: показ текста при нажатии на аватар
+  avatar.addEventListener("click", () => {
+    easterEgg.classList.toggle("hidden");
+  });
 });
