@@ -1,37 +1,66 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #121212;
-  color: #ffffff;
-  margin: 20px;
+  font-family: 'Roboto', sans-serif;
+  background-color: #181818;
+  color: #f0f0f0;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 h1, h2 {
   text-align: center;
+  margin-bottom: 20px;
+  color: #f8f9fa;
 }
 
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 15px;
+  background-color: #242424;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   margin-bottom: 20px;
 }
 
-input, textarea, button {
-  width: 80%;
-  margin: 5px;
-  padding: 10px;
+input, textarea {
+  width: 90%;
+  max-width: 400px;
+  margin: 8px 0;
+  padding: 12px;
   border-radius: 5px;
-  border: none;
+  border: 1px solid #444;
+  background-color: #2e2e2e;
+  color: #f0f0f0;
+  outline: none;
+}
+
+input:focus, textarea:focus {
+  border: 1px solid #3498db;
+  box-shadow: 0 0 4px #3498db;
 }
 
 button {
+  width: 90%;
+  max-width: 400px;
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
   background-color: #3498db;
   color: white;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 button:hover {
   background-color: #2980b9;
+}
+
+button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
 }
 
 #postsContainer {
@@ -40,25 +69,74 @@ button:hover {
 }
 
 .post {
-  background-color: #1e1e1e;
+  background-color: #242424;
   padding: 15px;
   margin-bottom: 15px;
-  border-radius: 5px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .post h3 {
-  margin: 0;
+  margin: 0 0 10px;
+  color: #e0e0e0;
+}
+
+.post p {
+  margin-bottom: 10px;
 }
 
 .post small {
   color: #888;
 }
 
-.footer {
-  position: fixed;
-  bottom: 10px;
-  width: 100%;
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  input, textarea, button {
+    width: 100%;
+  }
+
+  form {
+    padding: 10px;
+  }
+
+  .post {
+    padding: 10px;
+  }
+}
+
+#loginSection {
+  max-width: 400px;
+  margin: 0 auto 20px;
+  padding: 20px;
+  background-color: #2e2e2e;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+#loginSection input, #loginSection button {
+  width: calc(100% - 20px);
+  max-width: none;
+}
+
+#postSection {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #2e2e2e;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+#postsSection {
+  margin-top: 20px;
+}
+
+footer {
   text-align: center;
+  margin-top: 20px;
   color: #aaaaaa;
   font-size: 14px;
 }
