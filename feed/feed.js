@@ -10,6 +10,7 @@ const firebaseConfig = {
   messagingSenderId: "743827941561",
   appId: "1:743827941561:web:317e24d0d288f1ece4d368"
 };
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
@@ -25,6 +26,8 @@ function login() {
       alert("Ошибка входа: " + error.message);
     });
 }
+
+window.login = login;
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
@@ -77,5 +80,7 @@ async function loadPosts() {
     console.error("Ошибка при загрузке постов:", error);
   }
 }
+
+window.loadPosts = loadPosts;
 
 loadPosts();
