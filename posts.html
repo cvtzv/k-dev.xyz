@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>.cat roflanovv * Posts.</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Ваши посты</h1>
+
+  <!-- Форма для создания нового поста -->
+  <form id="postForm">
+    <input type="text" name="title" placeholder="Заголовок" required><br>
+    <textarea name="content" placeholder="Ваш пост" required></textarea><br>
+    <button type="submit">Добавить пост</button>
+  </form>
+
+  <!-- Секция для отображения постов -->
+  <div id="postsSection">
+    <h2>Все посты</h2>
+    <div id="postsContainer"></div>
+  </div>
+
+  <script src="posts.js"></script>
+</body>
+</html>
