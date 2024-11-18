@@ -53,3 +53,17 @@ button:hover {
 .post small {
   color: #888;
 }
+
+footer {
+  background-color: #1e1e1e;
+  color: #888;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+  border-top: 1px solid #333;
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px;
+}
