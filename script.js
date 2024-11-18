@@ -2,9 +2,14 @@ document.addEventListener("DOMContentLoaded", function() {
   const preloader = document.getElementById("preloader");
   const content = document.getElementById("content");
 
-  // Эмулируем задержку для демонстрации загрузочного экрана
   setTimeout(() => {
-    preloader.style.display = "none";
-    content.classList.remove("hidden");
-  }, 2000); // Задержка в 2 секунды
+    preloader.style.opacity = "0";
+    preloader.style.transition = "opacity 0.5s ease";
+    setTimeout(() => {
+      preloader.style.display = "none";
+      content.classList.remove("hidden");
+      content.style.opacity = "1";
+      content.style.transition = "opacity 0.5s ease";
+    }, 500);
+  }, 2000);
 });
