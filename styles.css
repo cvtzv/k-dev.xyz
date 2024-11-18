@@ -5,7 +5,6 @@
   padding: 0;
 }
 
-/* Градиентный фон */
 body {
   margin: 0;
   display: flex;
@@ -13,7 +12,8 @@ body {
   align-items: center;
   height: 100vh;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #4b6cb7, #182848);
+  background: #121212; /* Темный фон */
+  color: #ffffff; /* Текст белый */
   overflow: hidden;
 }
 
@@ -28,7 +28,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #121212;
+  background-color: #000000;
   z-index: 10;
   color: #ffffff;
 }
@@ -47,7 +47,6 @@ body {
   100% { transform: rotate(360deg); }
 }
 
-/* Анимированный текст */
 .loading-text {
   margin-top: 15px;
   font-size: 18px;
@@ -60,7 +59,7 @@ body {
   }
 }
 
-/* Скрываем контент до загрузки */
+/* Скрытие основного контента до загрузки */
 .hidden {
   display: none;
 }
@@ -68,12 +67,12 @@ body {
 /* Карточка */
 .card {
   text-align: center;
-  background: rgba(255, 255, 255, 0.85);
+  background: #1e1e1e; /* Темно-серый фон */
   border-radius: 15px;
   padding: 30px;
   max-width: 90%;
   width: 300px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s;
 }
 
@@ -81,7 +80,6 @@ body {
   transform: translateY(-5px);
 }
 
-/* Аватарка с анимацией при наведении */
 .avatar {
   width: 100px;
   height: 100px;
@@ -96,32 +94,60 @@ body {
 
 .nickname {
   font-size: 24px;
-  color: #333;
+  color: #ffffff;
   margin: 10px 0;
 }
 
 .description {
   font-size: 16px;
-  color: #555;
+  color: #aaaaaa;
   margin-bottom: 20px;
 }
 
+/* Ссылки на соцсети */
 .social-links {
   display: flex;
   justify-content: space-around;
 }
 
-/* Анимация при наведении на ссылки */
 .social-link {
   text-decoration: none;
   color: #3498db;
   font-weight: bold;
   transition: color 0.3s, transform 0.3s;
+  border: 1px solid transparent;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
 .social-link:hover {
   color: #ffffff;
+  background: #3498db;
+  border-color: #3498db;
   transform: scale(1.1);
+}
+
+/* Пасхалка */
+.easter-egg {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #ff9800;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+/* Футер */
+.footer {
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  color: #aaaaaa;
+  font-size: 14px;
 }
 
 /* Адаптивность */
