@@ -68,7 +68,7 @@ async function loadPosts() {
       postElement.classList.add("post");
       postElement.innerHTML = `
         <h3>${post.title}</h3>
-        <p>${post.content}</p>
+        <p>${marked.parse(post.content)}</p>
         <small>${post.date ? new Date(post.date.seconds * 1000).toLocaleString() : "Дата неизвестна"}</small>
       `;
       postsContainer.appendChild(postElement);
