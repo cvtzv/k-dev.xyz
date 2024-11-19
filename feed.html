@@ -10,26 +10,44 @@
   <script type="module" src="/feed/feed.js"></script>
 </head>
 <body>
-  <h1>Создание поста</h1>
 
-  <div id="loginSection">
-    <input type="email" id="email" placeholder="Email" required><br>
-    <input type="password" id="password" placeholder="Пароль" required><br>
-    <button onclick="login()">Войти</button>
-  </div>
-
-  <div id="postSection" style="display:none;">
-    <form id="postForm">
-      <input type="text" name="title" placeholder="Заголовок" required><br>
-      <textarea name="content" placeholder="Ваш пост" required></textarea><br>
-      <button type="submit">Добавить пост</button>
-    </form>
-  </div>
+  <nav class="navbar">
+    <ul class="navbar-links">
+      <li><a href="/">Главная</a></li>
+      <li><a href="/feed">Новости</a></li>
+      <li><button class="nav-button" onclick="openLoginModal()">Вход</button></li>
+      <li><button class="nav-button" onclick="openPostModal()">+</button></li>
+    </ul>
+  </nav>
 
   <div id="postsSection">
     <h2>Все посты</h2>
     <div id="postsContainer"></div>
   </div>
+
+  <div id="loginModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close" onclick="closeLoginModal()">&times;</span>
+      <h3>Вход</h3>
+      <input type="email" id="email" placeholder="Email" required><br>
+      <input type="password" id="password" placeholder="Пароль" required><br>
+      <button onclick="login()">Войти</button>
+    </div>
+  </div>
+
+  <div id="postModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close" onclick="closePostModal()">&times;</span>
+      <h3>Создать пост</h3>
+      <form id="postForm">
+        <input type="text" name="title" placeholder="Заголовок" required><br>
+        <textarea name="content" placeholder="Ваш пост" required></textarea><br>
+        <input type="file" id="image" accept="image/*"><br>
+        <button type="submit">Добавить пост</button>
+      </form>
+    </div>
+  </div>
+
   <footer>
     <p>&copy; kDev Workspace. 2023 – 2024. Все права защищены.</p>
   </footer>
