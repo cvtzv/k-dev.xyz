@@ -109,6 +109,7 @@ body {
   justify-content: center;
   gap: 15px;
   margin-bottom: 15px;
+  flex-wrap: wrap;
 }
 
 .social-link {
@@ -119,6 +120,9 @@ body {
   border: 2px solid transparent;
   padding: 5px 12px;
   border-radius: 5px;
+  display: inline-block;
+  text-align: center;
+  width: auto;
 }
 
 .social-link:hover {
@@ -138,6 +142,24 @@ body {
 @keyframes pulse {
   0%, 100% { opacity: 0.8; }
   50% { opacity: 1; }
+}
+
+.feed-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #00aaff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.feed-button:hover {
+  background: #007acc;
+  transform: translateY(-3px);
 }
 
 .footer {
@@ -182,7 +204,11 @@ body {
   }
 
   .social-link {
-    font-size: 12px;
+    font-size: 14px;
     padding: 4px 8px;
+  }
+
+  .social-links {
+    gap: 10px;
   }
 }
