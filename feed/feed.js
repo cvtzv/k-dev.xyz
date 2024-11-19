@@ -69,16 +69,20 @@ async function loadPosts() {
       const post = doc.data();
       const postElement = document.createElement("div");
       postElement.classList.add("post");
+
+      // Полный контент сохраняется в атрибуте data для toggleReadMore
       postElement.innerHTML = `
         <h3>${post.title}</h3>
-        <p class="post-content">${post.content.substring(0, 200)}... <button onclick="toggleReadMore(this)">Читать далее</button></p>
+        <p class="post-content" data-full-content="${post.content}">${post.content.substring(0, 200)}... 
+          <button onclick="toggleReadMore(this)">Читать далее</button>
+        </p>
         <small>${post.date ? new Date(post.date.seconds * 1000).toLocaleString() : "Дата неизвестна"}</small>
         <div class="comments">
           <h4>Комментарии</h4>
           <div class="comment-list"></div>
-          <input type="text" placeholder="Ваш никнейм">
-          <textarea placeholder="Текст комментария"></textarea>
-          <button onclick="addComment(this)">Отправить</button>
+          <input type="text" placeholder="Ваш никнейм" id="nickname-${doc.id}">
+          <textarea placeholder="Текст комментария" id="commentText-${doc.id}"></textarea>
+          <button onclick="addComment('${doc.id}')">Отправить</button>
         </div>
       `;
       postsContainer.appendChild(postElement);
@@ -92,8 +96,37 @@ window.loadPosts = loadPosts;
 
 function toggleReadMore(button) {
   const postContent = button.parentElement;
-  postContent.innerHTML = postContent.dataset.fullContent;
+  if (button.innerText === "Читать далее") {
+    postContent.innerHTML = `${postContent.dataset.fullContent} <button onclick="toggleReadMore(this)">Свернуть</button>`;
+  } else {
+    postContent.innerHTML = `${postContent.dataset.fullContent.substring(0, 200)}... <button onclick="toggleReadMore(this)">Читать далее</button>`;
+  }
 }
+
+async function addComment(postId) {
+  const nickname = document.getElementById(`nickname-${postId}`).value;
+  const commentText = document.getElementById(`commentText-${postId}`).value;
+
+  if (!nickname || !commentText) {
+    alert("Пожалуйста, заполните все поля комментария.");
+    return;
+  }
+
+  try {
+    await addDoc(collection(db, `posts/${postId}/comments`), {
+      nickname,
+      commentText,
+      date: serverTimestamp()
+    });
+    alert("Комментарий добавлен!");
+    loadPosts(); // Перезагрузка всех постов для отображения нового комментария
+  } catch (error) {
+    console.error("Ошибка при добавлении комментария:", error);
+  }
+}
+
+window.toggleReadMore = toggleReadMore;
+window.addComment = addComment;
 
 function openLoginModal() {
   document.getElementById("loginModal").classList.remove("hidden");
