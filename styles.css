@@ -32,18 +32,18 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #0d1b2a;
+  background: radial-gradient(circle, #0d1b2a 10%, #243b55 70%);
   z-index: 10;
   color: #ffffff;
 }
 
 .loader {
-  border: 6px solid #f3f3f3;
-  border-top: 6px solid #00aaff;
+  border: 8px solid rgba(255, 255, 255, 0.3);
+  border-top: 8px solid #00aaff;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1s linear infinite;
+  width: 60px;
+  height: 60px;
+  animation: spin 0.7s linear infinite;
 }
 
 @keyframes spin {
@@ -110,32 +110,35 @@ body {
   margin-bottom: 20px;
 }
 
+/* Социальные ссылки с иконками */
 .social-links {
   display: flex;
   justify-content: center;
   gap: 15px;
   margin-bottom: 15px;
-  flex-wrap: wrap;
 }
 
 .social-link {
-  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 170, 255, 0.2);
   color: #00aaff;
-  font-weight: bold;
-  transition: color 0.3s, transform 0.3s, background 0.3s;
-  border: 2px solid transparent;
-  padding: 5px 12px;
-  border-radius: 5px;
-  display: inline-block;
-  text-align: center;
-  width: auto;
+  transition: all 0.3s ease;
 }
 
 .social-link:hover {
-  color: #ffffff;
   background: #00aaff;
-  border-color: #00aaff;
-  transform: scale(1.1);
+  color: #ffffff;
+  transform: scale(1.15);
+}
+
+.social-link img {
+  width: 20px;
+  height: 20px;
 }
 
 .easter-egg {
@@ -150,9 +153,13 @@ body {
   50% { opacity: 1; }
 }
 
+/* Кнопка перехода на Feed сбоку */
 .feed-button {
-  display: inline-block;
-  padding: 10px 20px;
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 12px 20px;
   background: #00aaff;
   color: #ffffff;
   border: none;
@@ -160,11 +167,12 @@ body {
   text-decoration: none;
   font-weight: bold;
   transition: background 0.3s, transform 0.3s;
+  z-index: 11; /* выше, чем контент, чтобы быть видимой */
 }
 
 .feed-button:hover {
   background: #007acc;
-  transform: translateY(-3px);
+  transform: translateY(-50%) translateY(-3px);
 }
 
 .footer {
@@ -190,8 +198,14 @@ body {
   }
 
   .social-links {
-    flex-wrap: nowrap;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .feed-button {
+    right: 10px;
+    top: 90%;
+    transform: translateY(-50%);
   }
 }
 
@@ -214,13 +228,8 @@ body {
   }
 
   .social-link {
-    font-size: 14px;
-    padding: 4px 8px;
-  }
-
-  .social-links {
-    flex-wrap: nowrap;
-    justify-content: space-between;
+    width: 35px;
+    height: 35px;
   }
 
   .feed-button {
