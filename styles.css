@@ -16,6 +16,12 @@ body {
   overflow: hidden;
 }
 
+#content {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
 #preloader {
   position: fixed;
   top: 0;
@@ -146,7 +152,6 @@ body {
 
 .feed-button {
   display: inline-block;
-  margin-top: 20px;
   padding: 10px 20px;
   background: #00aaff;
   color: #ffffff;
@@ -173,7 +178,7 @@ body {
 
 @media (max-width: 768px) {
   .card {
-    width: 90%;
+    width: 95%;
   }
 
   .nickname {
@@ -183,11 +188,16 @@ body {
   .description {
     font-size: 15px;
   }
+
+  .social-links {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
 }
 
 @media (max-width: 480px) {
   .card {
-    width: 95%;
+    width: 100%;
   }
 
   .avatar {
@@ -209,6 +219,12 @@ body {
   }
 
   .social-links {
-    gap: 10px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  .feed-button {
+    width: 100%;
+    text-align: center;
   }
 }
