@@ -6,7 +6,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyCgLQarOfqIlg5oogTxF8RGO3qS3nqenLQ",
   authDomain: "k-dev-xyz.firebaseapp.com",
   projectId: "k-dev-xyz",
-  storageBucket: "k-dev-xyz.firebaseapp.com",
+  storageBucket: "k-dev-xyz.appspot.com",
   messagingSenderId: "743827941561",
   appId: "1:743827941561:web:317e24d0d288f1ece4d368"
 };
@@ -21,6 +21,7 @@ function login() {
   signInWithEmailAndPassword(auth, email, password)
     .then(() => {
       alert("Вы успешно вошли!");
+      closeLoginModal();
     })
     .catch((error) => {
       alert("Ошибка входа: " + error.message);
@@ -31,11 +32,9 @@ window.login = login;
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    document.getElementById("postSection").style.display = "block";
-    document.getElementById("loginSection").style.display = "none";
+    document.querySelector(".nav-button[onclick='openPostModal()']").style.display = "inline";
   } else {
-    document.getElementById("postSection").style.display = "none";
-    document.getElementById("loginSection").style.display = "block";
+    document.querySelector(".nav-button[onclick='openPostModal()']").style.display = "none";
   }
 });
 
@@ -52,6 +51,7 @@ document.getElementById("postForm").addEventListener("submit", async (e) => {
     });
     alert("Пост добавлен!");
     loadPosts();
+    closePostModal();
   } catch (error) {
     console.error("Ошибка:", error);
   }
@@ -71,8 +71,15 @@ async function loadPosts() {
       postElement.classList.add("post");
       postElement.innerHTML = `
         <h3>${post.title}</h3>
-        <p>${marked.parse(post.content)}</p>
+        <p class="post-content">${post.content.substring(0, 200)}... <button onclick="toggleReadMore(this)">Читать далее</button></p>
         <small>${post.date ? new Date(post.date.seconds * 1000).toLocaleString() : "Дата неизвестна"}</small>
+        <div class="comments">
+          <h4>Комментарии</h4>
+          <div class="comment-list"></div>
+          <input type="text" placeholder="Ваш никнейм">
+          <textarea placeholder="Текст комментария"></textarea>
+          <button onclick="addComment(this)">Отправить</button>
+        </div>
       `;
       postsContainer.appendChild(postElement);
     });
@@ -82,5 +89,31 @@ async function loadPosts() {
 }
 
 window.loadPosts = loadPosts;
+
+function toggleReadMore(button) {
+  const postContent = button.parentElement;
+  postContent.innerHTML = postContent.dataset.fullContent;
+}
+
+function openLoginModal() {
+  document.getElementById("loginModal").classList.remove("hidden");
+}
+
+function closeLoginModal() {
+  document.getElementById("loginModal").classList.add("hidden");
+}
+
+function openPostModal() {
+  document.getElementById("postModal").classList.remove("hidden");
+}
+
+function closePostModal() {
+  document.getElementById("postModal").classList.add("hidden");
+}
+
+window.openLoginModal = openLoginModal;
+window.closeLoginModal = closeLoginModal;
+window.openPostModal = openPostModal;
+window.closePostModal = closePostModal;
 
 loadPosts();
