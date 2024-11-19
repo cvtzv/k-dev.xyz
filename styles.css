@@ -110,14 +110,6 @@ body {
   margin-bottom: 20px;
 }
 
-/* Социальные ссылки с иконками */
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 15px;
-}
-
 .social-link {
   display: flex;
   align-items: center;
@@ -136,9 +128,13 @@ body {
   transform: scale(1.15);
 }
 
-.social-link img {
-  width: 20px;
-  height: 20px;
+.social-link i {
+  font-size: 20px;
+  transition: font-size 0.3s ease;
+}
+
+.social-link:hover i {
+  font-size: 22px;
 }
 
 .easter-egg {
@@ -153,7 +149,6 @@ body {
   50% { opacity: 1; }
 }
 
-/* Кнопка перехода на Feed сбоку */
 .feed-button {
   position: fixed;
   right: 20px;
@@ -167,7 +162,7 @@ body {
   text-decoration: none;
   font-weight: bold;
   transition: background 0.3s, transform 0.3s;
-  z-index: 11; /* выше, чем контент, чтобы быть видимой */
+  z-index: 11;
 }
 
 .feed-button:hover {
