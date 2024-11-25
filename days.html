@@ -6,8 +6,8 @@
     <title>Дней в отношениях</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            font-family: 'Georgia', serif;
+            background: linear-gradient(to bottom, #ff9a9e, #fecfef);
             color: #fff;
             display: flex;
             justify-content: center;
@@ -17,23 +17,43 @@
         }
         .container {
             text-align: center;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 20px 25px;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 400px;
         }
         h1 {
-            font-size: 2.5em;
+            font-size: 2em;
+            color: #ff5e78;
             margin-bottom: 20px;
+            font-weight: bold;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
         }
         .result {
-            font-size: 1.5em;
+            font-size: 1.2em;
+            color: #333;
             margin-top: 15px;
+        }
+        .heart {
+            font-size: 4em;
+            color: #ff6b81;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            .result {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="heart">❤️</div>
         <h1>Дней в отношениях</h1>
         <div class="result" id="result"></div>
     </div>
