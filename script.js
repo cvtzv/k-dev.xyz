@@ -10,12 +10,9 @@ document.addEventListener("DOMContentLoaded", function() {
     setTimeout(() => {
       preloader.style.display = "none";
       content.classList.remove("hidden");
-      content.style.opacity = "1";
-      content.style.transition = "opacity 0.5s ease";
     }, 500);
   }, 2000);
 
-  // Пасхалка: показ текста при нажатии на аватар
   avatar.addEventListener("click", () => {
     easterEgg.classList.toggle("hidden");
   });
